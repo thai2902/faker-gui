@@ -1,0 +1,27 @@
+<h1>Faker UI</h1>
+<form #form="ngForm">
+    <div *ngFor="let field of fields">
+        <mat-form-field>
+            <input matInput [name]="field" placeholder="Field name" [value]="field">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Data type">
+              <mat-option *ngFor="let group of fakerTypeList" [label]="group">
+                
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Data type">
+              <mat-optgroup *ngFor="let group of fakerTypeList" [label]="group">
+                <mat-option *ngFor="let type of fakerTypes[group]" [value]="type">
+                    {{type}}
+                </mat-option>
+              </mat-optgroup>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary">Add</button>
+</form>
+
+<pre>{{JSONSchema.properties | json }}</pre>
